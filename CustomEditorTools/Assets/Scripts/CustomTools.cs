@@ -18,8 +18,13 @@ public class CustomTools : EditorWindow
         window.Show();
     }
 
+    bool sizeObject; 
+    
     void OnGUI()
     {
+        // can we resize the object?
+        sizeObject = EditorGUILayout.Toggle("Resize Object?", sizeObject);
+
         // write a header
         EditorGUILayout.LabelField("Resize Selected Object", EditorStyles.boldLabel);
         // show our sliders
@@ -60,13 +65,18 @@ public class CustomTools : EditorWindow
             ourCam.fieldOfView = SceneView.lastActiveSceneView.camera.fieldOfView;
             ourCam.gameObject.name = "Custom Created Camera";
         }
+                
+        if (GUILayout.Button("Look At Selected Object"))
+        {
+            SceneView.lastActiveSceneView.LookAt(Selection.activeTransform.position);
+        }
 
         Repaint();
     }
 
     void OnInspectorUpdate()
     {
-        if (Selection.activeTransform)
+        if (Selection.activeTransform && sizeObject)
             Selection.activeTransform.localScale = new Vector3(xscale, yscale, zscale);
     }
 }
