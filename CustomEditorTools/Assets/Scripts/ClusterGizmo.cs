@@ -10,6 +10,11 @@ public class ClusterGizmo : MonoBehaviour
     {
         foreach(var cluster in clusters)
         {
+            if (cluster.name == "Door")
+            {
+                Gizmos.color = Color.red;
+            } else { Gizmos.color = Color.green; }
+
             Gizmos.DrawLine(transform.position, cluster.transform.position);
         }
     }

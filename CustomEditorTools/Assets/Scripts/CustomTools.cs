@@ -1,5 +1,3 @@
-// Editor script that lets you scale the selected GameObject between 1 and 100
-
 using UnityEditor;
 using UnityEngine;
 using UnityEditor.SceneManagement;
@@ -10,7 +8,7 @@ public class CustomTools : EditorWindow
     static float yscale = 0.0f;
     static float zscale = 0.0f;
 
-    [MenuItem("Custom Tools/ExampleTools")]
+    [MenuItem("Custom Tools/The Best Tools")]
     // The Init function is used to show a new editor window
     static void Init()
     {

@@ -15,6 +15,7 @@ public class CustomGizmoEditor : Editor
         if (targetScript.GizmoType == CustomGizmo.GizmoTypes.Box)
         {
             targetScript.boxSize = EditorGUILayout.Vector3Field("Box Size", targetScript.boxSize);
+            targetScript.boxSize.x = EditorGUILayout.FloatField("Box X Size", targetScript.boxSize.x);
             targetScript.boxColor = EditorGUILayout.ColorField("Box Color", targetScript.boxColor);
         }
 
